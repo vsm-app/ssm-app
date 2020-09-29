@@ -1,6 +1,10 @@
+def myDSL( String abc){
+ print "hello world $abc"
+}
 node('maven-label'){
 
 stage("prep"){
+  myDSL "test"
   git 'https://github.com/vsm-app/ssm-app.git'
 }
 stage("build"){
