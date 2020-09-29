@@ -1,0 +1,17 @@
+node('maven-label'){
+
+stage("prep"){
+  git 'https://github.com/vsm-app/ssm-app.git'
+}
+stage("build"){
+sh 'echo "build started...."'
+}
+stage("test"){
+sh 'echo "testing started..."'
+}
+stage("deploy"){
+sh 'echo "deploy started"'
+}
+
+
+}
