@@ -5,7 +5,7 @@ stage("clone"){
 stage("check tag exist"){
 def datas = readYaml file: '.version.yml'
 
- check_tag(${datas.version})
+ check_tag("${datas.version}")
 }
 
 }
