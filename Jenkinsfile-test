@@ -19,13 +19,14 @@ echo "tagname ::   $tagname"
  if GIT_DIR=.git git tag --list | egrep -q "^$tagname\$"
 then
     echo "Found tag"
-    flag=false
+    echo "flag: false" > flagtext.yml
 else
     echo "Tag not found"
     exit 0;
-    flag=true
+    echo "flag: true" > flagtext.yml
 fi
 """
-echo "flag value $flag"
+def res = readYaml file: 'flagtext.yml'
+echo "flag value ${res.flag}"
 error("Stopping early!")
 }
