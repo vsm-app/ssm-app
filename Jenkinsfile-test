@@ -8,6 +8,10 @@ def datas = readYaml file: '.version.yml'
  check_tag("${datas.version}")
 }
 
+stage("test stage"){
+ echo "test stage"
+}
+
 }
 def check_tag(tagname){
 sh """
