@@ -17,11 +17,7 @@ stage("test stage"){
 def check_tag(TAGNAME){
 sh """
 echo "TAGNAME ::   $TAGNAME"
- gitTagExists=\$(git tag -l "$TAGNAME")
-
-if [ -n "$gitTagExists" ]; then
-    echo "tag $TAGNAME already exists."
-    exit 1
-fi
+def foo = sh(returnStdout: true, script: "git tag --sort version:refname | tail -1").trim()
+echo "$foo"
 """
 }
