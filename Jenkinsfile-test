@@ -1,0 +1,19 @@
+node(){
+stage("clone"){
+  checkout scm
+}
+stage("check tag exist"){
+ check_tag()
+}
+
+}
+def check_tag(){
+sh """
+ if GIT_DIR=.git git tag --list | egrep -q "^test\$"
+then
+    echo "Found tag"
+else
+    echo "Tag not found"
+fi
+"""
+}
