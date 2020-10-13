@@ -22,7 +22,6 @@ then
     echo "flag: false" > flagtext.yml
 else
     echo "Tag not found"
-    exit 0;
     echo "flag: true" > flagtext.yml
 fi
 """
