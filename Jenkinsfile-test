@@ -1,6 +1,6 @@
 node(){
 stage("clone"){
-  git scm
+  checkout scm
 }
 
 
