@@ -19,7 +19,7 @@ echo "tagname ::   $tagname"
  if GIT_DIR=.git git tag --list | egrep -q "^$tagname\$"
 then
     echo "Found tag"
-    exit 1;
+    error("Stopping early!")
 else
     echo "Tag not found"
     exit 0;
