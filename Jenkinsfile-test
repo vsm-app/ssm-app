@@ -22,6 +22,7 @@ then
     exit 1;
 else
     echo "Tag not found"
+    exit 0;
 fi
 """
 }
