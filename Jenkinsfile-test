@@ -28,5 +28,8 @@ fi
 """
 def res = readYaml file: 'flagtext.yml'
 echo "flag value ${res.flag}"
-error("Stopping early!")
+if (res.flag == 'false') {
+            echo 'Stopping early'
+            error("Stopping early!")
+} 
 }
