@@ -1,1 +1,27 @@
 
+node(){
+stage("clone"){
+  checkout scm
+}
+stage("check tag exist"){
+def datas = readYaml file: '.version.yml'
+
+ check_tag("${datas.version}")
+}
+
+stage("test stage"){
+ echo "test stage"
+}
+
+}
+def check_tag(TAGNAME){
+sh """
+echo "TAGNAME ::   $TAGNAME"
+ gitTagExists=\$(git tag -l "\$TAGNAME")
+
+if [ -n "\$gitTagExists" ]; then
+    echo "tag \$TAGNAME already exists."
+    exit 1
+fi
+"""
+}
