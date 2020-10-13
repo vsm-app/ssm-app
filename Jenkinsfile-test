@@ -3,12 +3,13 @@ stage("clone"){
   checkout scm
 }
 stage("check tag exist"){
- check_tag("1.0.0")
+ check_tag("1.0.1")
 }
 
 }
 def check_tag(tagname){
 sh """
+echo "tagname ::   $tagname"
  if GIT_DIR=.git git tag --list | egrep -q "^\$tagname\$"
 then
     echo "Found tag"
