@@ -16,9 +16,7 @@ stage("test stage"){
 def check_tag(tagname){
 sh """
 echo "tagname ::   $tagname"
-GIT_DIR=.git git tag --list | egrep -q "^$tagname\$"
-echo "  GIT_DIR ::::  $GIT_DIR"
- if GIT_DIR=.git git tag --list | egrep -q "^$tagname\$"
+if GIT_DIR=.git git tag --list | egrep -q "^$tagname\$"
 then
     echo "Found tag"
     echo "flag: false" > flagtext.yml
