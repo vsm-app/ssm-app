@@ -2,6 +2,13 @@ node(){
 stage("clone"){
   checkout scm
 }
+stage("check tag exist"){
+ check_tag()
+}
 
-
+}
+def check_tag(){
+sh """
+ echo "Found tag"
+"""
 }
